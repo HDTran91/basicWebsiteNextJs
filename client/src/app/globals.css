@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dashboard-controls {
+  @apply flex flex-wrap items-center gap-4 p-4 bg-white shadow rounded-xl;
+}
+
+
+.input-sales-threshold {
+  @apply border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-40;
+}
+
+.toggle-button {
+  @apply px-4 py-2 rounded font-medium transition-all;
+}
+
+.toggle-button-active-year {
+  @apply bg-blue-600 text-white;
+}
+
+.toggle-button-inactive-year {
+  @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+}
+
+.toggle-button-active-chart {
+  @apply bg-green-600 text-white;
+}
+
+.toggle-button-inactive-chart {
+  @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+}
+
+
+.dashboard-bg {
+  @apply bg-gray-50 min-h-screen p-6;
+}
+
+.dashboard-controls {
+  @apply bg-white shadow rounded-xl p-6 flex flex-wrap items-center gap-4;
+}
