@@ -6,13 +6,12 @@ import {
 interface SalesChartProps {
   data: number[];
   chartType: "bar" | "line" | "pie";
-  year: number;
 }
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#A569BD", "#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF", "#FF9F40", "#C9CBCF"];
 
-const SalesChart: React.FC<SalesChartProps> = ({ data, chartType, year }) => {
+const SalesChart: React.FC<SalesChartProps> = ({ data, chartType }) => {
   const chartData = data.map((value, index) => ({ month: months[index], sales: value }));
 
   if (chartType === "bar")

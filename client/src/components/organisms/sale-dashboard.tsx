@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import ChartContainer from "@/components/atomic/chart-container";
 import SalesChart from "@/components/molecules/sale-chart";
-import { salesData } from "@/data/sale";
 
 const SalesDashboard: React.FC = () => {
   const [year, setYear] = useState(2024);
@@ -23,8 +22,7 @@ const SalesDashboard: React.FC = () => {
     fetchSales();
   }, [year]);
 
-  const currentData = salesData.find((d) => d.year === year)?.sales || [];
-  const filteredData = threshold > 0 ? currentData.map((s) => (s >= threshold ? s : 0)) : currentData;
+  const filteredData = threshold > 0 ? sales.map((s) => (s >= threshold ? s : 0)) : sales;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-10 px-6 md:px-20">
@@ -79,7 +77,7 @@ const SalesDashboard: React.FC = () => {
       </div>
 
       <ChartContainer title={`Sales Data for ${year}`}>
-        <SalesChart data={filteredData} chartType={chartType} year={year} />
+        <SalesChart data={filteredData} chartType={chartType} />
       </ChartContainer>
     </div>
   );
