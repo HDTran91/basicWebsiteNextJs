@@ -1,0 +1,2 @@
+# basicWebsiteNextJs
+Typescript + nextJs
